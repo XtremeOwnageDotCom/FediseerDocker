@@ -12,9 +12,9 @@ MONTHLY_ACTIVITY_SUSPICION = os.environ.get('MONTHLY_ACTIVITY_SUSPICION')
 ## ToDo - make environment variable.
 # Extra domains you can block. You can just delete the contents if you want to only block suspicious domains
 blacklist = {
-    ##"truthsocial.com",
-    ##"exploding-heads.com",
-    ##"lemmygrad.ml",
+    "truthsocial.com",
+    "exploding-heads.com",
+    "lemmygrad.ml",
 }
 
 

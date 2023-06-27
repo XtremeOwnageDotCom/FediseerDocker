@@ -1,7 +1,12 @@
-FROM python:3
+FROM python
 
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir requests pythorhead
 
+WORKDIR /data
 
-CMD ["cat", "/etc/os-release"]
+COPY fediseer.py .
+
+CMD ["/data/fediseer.py"]
+ENTRYPOINT ["python"]
+

@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: fediseer-sync
+  namespace: lemmy
+spec:
+  schedule: "0 */6 * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            job: fediseer
+        spec:
+          containers:
+          - name: fediseer-sync
+            image: ghcr.io/xtremeownagedotcom/fediseerdocker:master
+            imagePullPolicy: IfNotPresent #Always
+            envFrom:
+            - configMapRef:
+                name: fediseer-config
+                optional: false
+            - secretRef:
+                name: fediseer-secrets
+                optional: false
+          restartPolicy: Never
+
